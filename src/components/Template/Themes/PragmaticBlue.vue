@@ -37,8 +37,9 @@
           </div>
           <div class="text-weight-bold text-uppercase q-mt-sm">Invoice Due Date</div>
           <div class="text-subtitle text-grey">
+            {{ dueDate }}
             <q-popup-edit v-model="dueDate">
-              <q-input v-model="dueDate" filled type="date" dense autofocus counter />
+              <q-input v-model="dueDate" type="date" dense autofocus counter />
             </q-popup-edit>
           </div>
         </div>

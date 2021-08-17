@@ -5,6 +5,7 @@ import { boot } from 'quasar/wrappers';
 const globalComponents = {
   Loader: require('components/reusables/Loader/Loader').default,
   Search: require('components/reusables/Search/Search').default,
+  Notify: require('components/reusables/Notify/Notify').default,
 };
 
 export default boot(({ app }) => {
