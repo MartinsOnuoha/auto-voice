@@ -25,7 +25,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Run Cypress E2E
-        uses: cypress-io/github-action@v2.9.7
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run Integration Tests
+        run: yarn run test:e2e:ci
 
