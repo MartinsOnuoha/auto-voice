@@ -11,6 +11,7 @@ Autovoice is built with:
 - [Vue.js](https://vuejs.org/) - Javascript SPA framework
 - [Quasar](https://quasar.dev/) - UI library written in Vue
 - [GraphQL](https://graphql.org/) - Query language
+- [Magic](https://magic.link) - Passwordless Authentication system
 - [Apollo](https://www.apollographql.com/) - GraphQL Client
 - [Postgres](https://www.postgresql.org/) - Database provisioned on a heroku instance
 - [Cypress](https://cypress.io/) - E2E testing framework
