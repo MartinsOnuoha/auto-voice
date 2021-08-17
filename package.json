@@ -31,13 +31,16 @@
     "@quasar/quasar-app-extension-testing-e2e-cypress": "^3.1.0",
     "@quasar/quasar-app-extension-testing-unit-jest": "^2.2.2",
     "@vue/test-utils": "^2.0.0-rc.11",
+    "babel-jest": "^27.0.6",
     "dotenv": "^10.0.0",
     "eslint": "^7.14.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-cypress": "^2.11.1",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-vue": "^7.0.0",
-    "eslint-webpack-plugin": "^2.4.0"
+    "eslint-webpack-plugin": "^2.4.0",
+    "jest": "^27.0.6",
+    "vue-jest": "^3.0.7"
   },
   "browserslist": [
     "last 10 Chrome versions",
