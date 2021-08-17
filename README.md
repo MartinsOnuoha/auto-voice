@@ -34,8 +34,6 @@ AutoVoice is a Jamstack application that let's users customize invoices and down
 
 ![preview-2](https://raw.githubusercontent.com/MartinsOnuoha/auto-invoice/master/public/2.png)
 
-![preview-2](https://raw.githubusercontent.com/MartinsOnuoha/auto-invoice/master/public/2.gif)
-
 ## Try it Out
 
 Feel free to try out the application [here](https://auto-voice.surge.sh)

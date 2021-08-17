@@ -1,9 +1,7 @@
-const user = localStorage.getItem('user');
-
 export default () => ({
   templates: [],
   settings: null,
   currencies: [],
-  user: user ? JSON.parse(user) : null,
+  user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null,
   saved_templates: [],
 });

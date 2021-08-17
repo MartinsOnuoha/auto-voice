@@ -1,6 +1,9 @@
 <template>
   <q-page padding class="flex column">
     <notify message="Here you can see all saved templates." />
+    <div class="flex flex-center" v-if="!saved_templates.length">
+      <loader />
+    </div>
     <saved-temp
       :name="item.name"
       :preview_url="item.preview_url"
