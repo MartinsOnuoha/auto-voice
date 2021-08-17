@@ -3,7 +3,9 @@ import { Magic } from 'magic-sdk';
 import {
   GET_TEMPLATES, GET_CURRENCIES, GET_USER, GET_SETTINGS, GET_BOOKMARKED,
 } from '../../gql/queries';
-import { BOOKMARK_TEMPLATE, CREATE_USER } from '../../gql/mutations';
+import {
+  BOOKMARK_TEMPLATE, CREATE_USER, CREATE_SETTINGS, UPDATE_SETTINGS,
+} from '../../gql/mutations';
 
 const magic = new Magic(process.env.MAGIC_KEY);
 
@@ -71,6 +73,22 @@ export async function getBookmarked({ commit }, userId) {
       commit('SET_BOOKMARKED', savedTemplates);
       return data;
     });
+}
+
+export async function updateSettings({ commit }, { settingId, payload }) {
+  if (!settingId) {
+    const { insert_settings_one: newSettings } = await apolloClient.mutate({ mutation: CREATE_SETTINGS, variables: { ...payload } }).then(({ data }) => data);
+    commit('SET_SETTINGS', newSettings);
+    return newSettings;
+  }
+  payload = { ...payload, id: settingId };
+  delete payload.user_id;
+  // eslint-disable-next-line no-underscore-dangle
+  delete payload.__typename;
+
+  const { update_settings_by_pk: updatedData } = await apolloClient.mutate({ mutation: UPDATE_SETTINGS, variables: { ...payload } }).then(({ data }) => data);
+  commit('SET_SETTINGS', updatedData);
+  return updatedData;
 }
 /**
  * handle logout

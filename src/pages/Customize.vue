@@ -1,7 +1,7 @@
 <template>
   <q-page class="flex flex-center column" padding>
     <notify message="You can edit the basic elements of this template by clicking on them" />
-    <component :is="componentId"></component>
+    <component :setting="settings" :is="componentId"></component>
   </q-page>
 </template>
 

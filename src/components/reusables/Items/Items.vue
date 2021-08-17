@@ -34,17 +34,14 @@
           </q-popup-edit>
         </q-td>
         <q-td key="description" :props="props">
-          $ {{ (props.row.quantity * props.row.price) || 0.00 }}
+           {{ currency }} {{ (props.row.quantity * props.row.price) || 0.00 }}
         </q-td>
       </q-tr>
     </template>
     <template v-slot:bottom>
-      <div class="row">
+      <div class="row card_button">
         <q-btn color="primary" size="sm" icon="add" label="Add Item" @click="addRow" />
-        <q-space />
-        <div class="total">
-          {{  }}
-        </div>
+        <q-btn class="q-ml-md" color="primary" size="sm" icon="download" label="Download" @click="download" />
       </div>
     </template>
   </q-table>
@@ -65,6 +62,11 @@ import { defineComponent } from 'vue';
 
 const Items = defineComponent({
   name: 'Items',
+  props: {
+    currency: {
+      type: String,
+    },
+  },
   data() {
     return {
       columns: [
@@ -89,16 +91,7 @@ const Items = defineComponent({
           id: 1, items: 'Item Name', description: 'Describe the product here', quantity: 0, price: 0.00, amount: 0.00,
         },
       ],
-      currencies: [
-        { name: 'EUR', sign: '£' },
-        { name: 'USD', sign: '$' },
-        { name: 'CAD', sign: '$' },
-        { name: 'NGN', sign: '₦' },
-        { name: 'GBP', sign: '£' },
-        { name: 'CHF', sign: 'CHf' },
-        { name: 'JPY', sign: '¥' },
-        { name: 'AUD', sign: 'AUD' },
-      ],
+      sumTotal: 0,
     };
   },
   methods: {
@@ -107,9 +100,9 @@ const Items = defineComponent({
         id: 2, items: 'Item Name', description: 'Describe the product here', quantity: 0, price: 0.00, amount: 0.00,
       });
     },
-  },
-  mounted() {
-    this.currency = this.currencies.find((x) => x.name === 'GBP');
+    download() {
+      this.$emit('download');
+    },
   },
 });
 

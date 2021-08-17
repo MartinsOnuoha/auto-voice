@@ -11,14 +11,13 @@
       </q-tabs>
     </div>
     <q-tab-panels class="bg-grey-1" v-model="currentTab" animated>
-      <q-tab-panel name="user">
+      <q-tab-panel name="user" class="q-pt-none">
         <q-card class="settings-card q-pa-md">
           <q-card-section>
             <div class="text-h6">Your Default settings</div>
           </q-card-section>
           <q-card-section>
             <q-form
-              @submit="onSubmit"
               class="q-gutter-md"
             >
               <q-select
@@ -39,15 +38,12 @@
               <q-input outlined dense v-model="form.city" type="text" label="City" />
               <q-input outlined dense v-model="form.country" type="text" label="Country" />
               <q-input outlined dense v-model="form.postal" type="text" label="Postal/Zip Code" />
-              <div>
-                <q-btn label="All Good Now" no-caps type="submit" color="primary"/>
-              </div>
             </q-form>
           </q-card-section>
         </q-card>
       </q-tab-panel>
 
-      <q-tab-panel name="company">
+      <q-tab-panel name="company" class="q-pt-none">
         <q-card class="settings-card q-pa-md">
           <q-card-section>
             <div class="text-h6">Company's default settings</div>
@@ -62,15 +58,14 @@
               <q-input outlined dense v-model="form.company_city" type="text" label="Company City" />
               <q-input outlined dense v-model="form.company_country" type="text" label="Company Country" />
               <q-input outlined dense v-model="form.company_postal" type="text" label="Company Postal Code" />
-              <div>
-                <q-btn label="All Good Now" no-caps type="submit" color="primary"/>
-              </div>
             </q-form>
           </q-card-section>
         </q-card>
       </q-tab-panel>
     </q-tab-panels>
-
+    <div class="row">
+      <q-btn @click="onSubmit" class="full-width" label="Save Changes" no-caps type="submit" color="primary"/>
+    </div>
   </q-page>
 </template>
 
@@ -107,18 +102,31 @@ const Settings = defineComponent({
   computed: {
     ...mapState('app', [
       'currencies',
+      'settings',
+      'user',
     ]),
   },
   methods: {
-    onSubmit() {
-
+    async onSubmit() {
+      this.$q.loading.show();
+      const settingId = this.settings.id || null;
+      await this.$store.dispatch('app/updateSettings', { settingId, payload: this.form });
+      this.$q.loading.hide();
     },
   },
-  mounted() {
+  beforeMount() {
     this.form.currency = 'USD (  )';
-    this.$store.dispatch('app/getCurrencies')
+    Promise.all([
+      this.$store.dispatch('app/getCurrencies'),
+      this.$store.dispatch('app/getSettings', this.user.id),
+    ])
       .then(() => {
         this.fetchingCurrencies = false;
+        if (this.settings) {
+          Object.keys(this.settings).forEach((key) => {
+            this.form[key] = this.settings[key];
+          });
+        }
       });
   },
 });
