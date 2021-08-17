@@ -30,7 +30,9 @@ AutoVoice is a Jamstack application that let's users customize invoices and down
 
 - Oh, and your data is secure with our Passwordless login and device detection.
 
-![preview-2](https://raw.githubusercontent.com/MartinsOnuoha/auto-invoice/master/public/3.gif)
+![preview-2](https://raw.githubusercontent.com/MartinsOnuoha/auto-invoice/master/public/e.gif)
+
+![preview-2](https://raw.githubusercontent.com/MartinsOnuoha/auto-invoice/master/public/2.png)
 
 ![preview-2](https://raw.githubusercontent.com/MartinsOnuoha/auto-invoice/master/public/2.gif)
 
