@@ -28,9 +28,11 @@ AutoVoice is a Jamstack application that let's users customize invoices and down
 
 ![preview-2](https://raw.githubusercontent.com/MartinsOnuoha/auto-invoice/master/public/d.gif)
 
-- Oh, and your data is secure with our Passwordless integration system.
+- Oh, and your data is secure with our Passwordless login and device detection.
 
 ![preview-2](https://raw.githubusercontent.com/MartinsOnuoha/auto-invoice/master/public/3.gif)
+
+![preview-2](https://raw.githubusercontent.com/MartinsOnuoha/auto-invoice/master/public/2.gif)
 
 ## Try it Out
 
@@ -47,8 +49,8 @@ Autovoice is built with:
 - [Apollo](https://www.apollographql.com/) - GraphQL Client
 - [Postgres](https://www.postgresql.org/) - Database provisioned on a heroku instance
 - [Cypress](https://cypress.io/) - E2E testing framework
-- [Surge](https://surge.sh) - Static Hosting Service
-- GithubActions - CI/CD
+- [Hostinger](https://hostinger.com) - Static Hosting Service
+- Github Actions - CI/CD
 
 ## Running the Application Locally
 
