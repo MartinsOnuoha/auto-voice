@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header class="mobile-only">
+    <q-header v-if="user" class="mobile-only">
       <q-toolbar class="q-pa-md mobile-only">
         <q-btn
           flat
@@ -12,7 +12,10 @@
         />
 
         <q-toolbar-title>
-          🧾 AutoInvoice
+          <q-icon size="lg" name="img:/av-logo.png" />
+          <div class="q-mt-sm">
+            AutoInvoice
+          </div>
         </q-toolbar-title>
 
       </q-toolbar>
@@ -22,6 +25,7 @@
       v-model="leftDrawerOpen"
       show-if-above
       bordered
+      v-if="user"
       class=""
     >
       <q-list class="q-pa-md">
@@ -29,7 +33,8 @@
           header
           class="text-grey-8 q-mb-xl text-h6"
         >
-          🧾 AutoInvoice
+          <q-icon name="img:/av-logo.png" />
+          AutoInvoice
         </q-item-label>
 
         <div class="links">
@@ -38,6 +43,7 @@
             :key="link.title"
             v-bind="link"
           />
+          <SidebarLink @click="logOut" v-bind="{ title: 'Logout', link: '/logout', icon: 'logout', caption: 'Alright, I\'m done' }"/>
         </div>
       </q-list>
     </q-drawer>
@@ -65,12 +71,6 @@ const linksList = [
     link: '/saved-invoices',
   },
   {
-    title: 'Profile',
-    caption: 'manage your profile 😀',
-    icon: 'person',
-    link: '/me',
-  },
-  {
     title: 'Settings',
     caption: 'configure automation 🔧',
     icon: 'settings',
@@ -79,14 +79,24 @@ const linksList = [
 ];
 
 import { defineComponent, ref } from 'vue';
+import { mapGetters } from 'vuex';
 
 export default defineComponent({
   name: 'MainLayout',
-
   components: {
     SidebarLink,
   },
-
+  computed: {
+    ...mapGetters({
+      user: 'app/user',
+    }),
+  },
+  methods: {
+    logOut() {
+      this.$store.dispatch('app/logout');
+      this.$router.replace({ name: 'home' });
+    },
+  },
   setup() {
     const leftDrawerOpen = ref(false);
 

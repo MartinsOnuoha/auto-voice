@@ -27,6 +27,14 @@ export default route((/* { store, ssrContext } */) => {
     // quasar.conf.js -> build -> publicPath
     history: createHistory(process.env.MODE === 'ssr' ? void 0 : process.env.VUE_ROUTER_BASE),
   });
-
+  Router.beforeEach((to, from, next) => {
+    if (to.matched.some((record) => record.meta.requiresAuth) && !localStorage.getItem('user')) {
+      next('/');
+    }
+    if (to.name === 'home' && localStorage.getItem('user') && localStorage.getItem('token')) {
+      next('/explore');
+    }
+    next();
+  });
   return Router;
 });

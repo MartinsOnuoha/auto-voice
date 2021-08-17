@@ -18,6 +18,7 @@
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "graphql": "^15.5.1",
+    "magic-sdk": "^4.4.1",
     "quasar": "^2.0.0",
     "vue-apollo": "^3.0.7",
     "vue-i18n": "^9.0.0-beta.0",
