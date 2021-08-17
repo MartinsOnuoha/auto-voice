@@ -13,32 +13,32 @@ describe('Login Page',
     viewportWidth: 1024,
     viewportHeight: 700,
   },
- () => {
-  beforeEach(() => {
-    cy.visit('/');
+  () => {
+    beforeEach(() => {
+      cy.visit('/');
+    });
+    it('.should() - have a pretty image', () => {
+      cy.get('.homePage img')
+        .should('have.class', 'side-image')
+        .and('have.attr', 'src');
+    });
+    it('.should() - have form title', () => {
+      cy.get('.login-form')
+        .should('contain', 'Enter your email');
+    });
+    it('.should() - be able to type in form', () => {
+      cy.get('.email input')
+        .type('fake@email.com')
+        .should('have.value', 'fake@email.com');
+    });
+    it('.should() - have a submit button', () => {
+      cy.get('.q-btn')
+        .should('have.attr', 'type', 'submit');
+    });
+    it('.should() - have a white card', () => {
+      cy.get('.q-card').should('have.css', 'background-color', 'rgb(255, 255, 255)');
+    });
   });
-  it('.should() - have a pretty image', () => {
-    cy.get('.homePage img')
-      .should('have.class', 'side-image')
-      .and('have.attr', 'src')
-  })
-  it('.should() - have form title', () => {
-    cy.get('.login-form')
-      .should('contain', 'Enter your email')
-  })
-  it('.should() - be able to type in form', () => {
-    cy.get('.email input')
-      .type('fake@email.com')
-      .should('have.value', 'fake@email.com')
-  })
-  it('.should() - have a submit button', () => {
-    cy.get('.q-btn')
-      .should('have.attr', 'type', 'submit')
-  })
-  it('.should() - have a white card', () => {
-    cy.get('.q-card').should('have.css', 'background-color', 'rgb(255, 255, 255)')
-  })
-});
 
 // ** The following code is an example to show you how to write some tests for your home page **
 //
