@@ -2,6 +2,20 @@
 
 AutoVoice is a Jamstack application that let's users customize invoices and download or automate (coming soon) them in a click...or two.
 
+- [AutoVoice 🧾](#autovoice-)
+  - [Checkout AutoVoice](#checkout-autovoice)
+    - [See More](#see-more)
+  - [Try it Out](#try-it-out)
+  - [Project Tools 🛠](#project-tools-)
+  - [Running the Application Locally](#running-the-application-locally)
+    - [Install All Dependencies](#install-all-dependencies)
+    - [Start the app in development mode (hot-code reloading, error reporting, etc.)](#start-the-app-in-development-mode-hot-code-reloading-error-reporting-etc)
+    - [Lint the files](#lint-the-files)
+  - [Run Integration Tests](#run-integration-tests)
+  - [Project Structure](#project-structure)
+    - [📁 Components](#-components)
+    - [📁 Gql Folder](#-gql-folder)
+
 ## Checkout AutoVoice
 
 ![preview](https://raw.githubusercontent.com/MartinsOnuoha/auto-invoice/master/public/1.png)
@@ -36,7 +50,7 @@ AutoVoice is a Jamstack application that let's users customize invoices and down
 
 ## Try it Out
 
-Feel free to try out the application [here](https://auto-voice.surge.sh)
+Feel free to try out the application [here](http://autovoice.martinsonuoha.com)
 
 ## Project Tools 🛠
 
