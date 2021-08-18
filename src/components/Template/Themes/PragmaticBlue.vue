@@ -125,9 +125,8 @@ const ContextualNode = defineComponent({
     },
   },
   async mounted() {
-    if (!this.settings) {
-      await this.$store.dispatch('app/getSettings', this.user.id);
-    }
+    this.$q.loading.show();
+    await this.$store.dispatch('app/getSettings', this.user.id);
     let arr = [];
     if (this.settings) {
       arr = Object.keys(this.settings);
@@ -142,6 +141,7 @@ const ContextualNode = defineComponent({
         }
       }
     });
+    this.$q.loading.hide();
   },
   setup() {
     const dueDate = ref('mm/dd/yyyy');
