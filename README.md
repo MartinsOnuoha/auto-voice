@@ -50,7 +50,7 @@ AutoVoice is a Jamstack application that let's users customize invoices and down
 
 ## Try it Out
 
-Feel free to try out the application [here](http://autovoice.martinsonuoha.com)
+Feel free to try out the application [HERE](http://autovoice.martinsonuoha.com)
 
 ## Project Tools 🛠
 
