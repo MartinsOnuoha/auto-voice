@@ -64,7 +64,7 @@ Autovoice is built with:
 - [Postgres](https://www.postgresql.org/) - Database provisioned on a heroku instance
 - [Cypress](https://cypress.io/) - E2E testing framework
 - [Hostinger](https://hostinger.com) - Static Hosting Service
-- Github Actions - CI/CD
+- [Github Actions](https://github.com/features/actions) - CI/CD
 
 ## Running the Application Locally
 

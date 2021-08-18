@@ -38,6 +38,22 @@ describe('Login Page',
     it('.should() - have a white card', () => {
       cy.get('.q-card').should('have.css', 'background-color', 'rgb(255, 255, 255)');
     });
+    it('.should() - not show loader if no input', () => {
+      cy.get('button[type=submit]').click();
+      cy.get('#q-loading').should('not.exist');
+    });
+    it('.should() - show loader if input', () => {
+      cy.get('.email input').type('fake');
+      cy.get('button[type=submit]').click();
+      cy.get('.q-loading').should('be.visible');
+    });
+    // it('.should() - show magic iframe', () => {
+    //   cy.get('.email input').type('fake');
+    //   // cy.get('form').submit()
+    //   //   .then(() => {
+    //   //     cy.get('.magic-iframe').should('be.visible');
+    //   //   });
+    // });
   });
 
 // ** The following code is an example to show you how to write some tests for your home page **
