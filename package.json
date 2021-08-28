@@ -9,6 +9,7 @@
     "lint": "eslint --ext .js,.vue ./",
     "test": "jest",
     "build": "quasar build",
+    "deploy": "firebase deploy --only hosting",
     "test:unit": "jest --updateSnapshot",
     "test:e2e": "cross-env E2E_TEST=true start-test \"quasar dev\" http-get://localhost:8080 \"cypress open\"",
     "test:e2e:ci": "cross-env E2E_TEST=true start-test \"quasar dev\" http-get://localhost:8080 \"cypress run\"",
