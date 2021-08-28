@@ -58,6 +58,18 @@
               <q-input outlined dense v-model="form.company_city" type="text" label="Company City" />
               <q-input outlined dense v-model="form.company_country" type="text" label="Company Country" />
               <q-input outlined dense v-model="form.company_postal" type="text" label="Company Postal Code" />
+              <q-input
+                :rules="[
+                  val => !!val || 'Please provide a VAT Number',
+                  val => val.length >= 3 || 'VAT Number must be greater than 3'
+                ]"
+                :debounce="20000"
+                outlined
+                dense
+                v-model="form.vat_no"
+                type="text"
+                label="VAT Number"
+              />
             </q-form>
           </q-card-section>
         </q-card>
@@ -94,6 +106,7 @@ const Settings = defineComponent({
         company_country: '',
         company_postal: '',
         currency: '',
+        vat_no: '',
       },
       currentTab: 'user',
       fetchingCurrencies: true,

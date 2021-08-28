@@ -23,6 +23,7 @@
           <div class="editable text-subtitle text-grey q-mt-sm" data-name="company_city">City</div>
           <div class="editable text-subtitle text-grey q-mt-sm" data-name="company_country">Country</div>
           <div class="editable text-subtitle text-grey q-mt-sm" data-name="company_postal">Postal</div>
+          <div class="editable text-subtitle text-grey q-mt-sm" data-name="vat_no">Vat Number</div>
         </div>
         <q-space />
         <div class="text-right">
