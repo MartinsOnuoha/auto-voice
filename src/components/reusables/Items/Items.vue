@@ -41,7 +41,7 @@
     <template v-slot:bottom>
       <div class="row card_button">
         <q-btn color="primary" size="sm" icon="add" label="Add Item" @click="addRow" />
-        <q-btn class="q-ml-md" color="primary" size="sm" icon="download" label="Download" @click="download" />
+        <q-btn class="q-ml-md" color="primary" size="sm" icon="download" label="Download" @click="download()" />
       </div>
     </template>
   </q-table>
